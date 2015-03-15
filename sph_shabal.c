@@ -653,7 +653,7 @@ shabal_close(void *cc, unsigned ub, unsigned n, void *dst, unsigned size_words)
 	default:
 		return;
 	}
-	out_len = size_words << 2;
+	out_len = ((unsigned __int64)size_words) << 2;
 	memcpy(dst, u.tmp_out + (sizeof u.tmp_out) - out_len, out_len);
 	shabal_init(sc, size_words << 5);
 }

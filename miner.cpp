@@ -85,10 +85,10 @@ unsigned updaterport = 8125;		// порт пула
 
 unsigned proxyport = 8126;			// порт пула
 
-char *p_minerPath;					// путь к папке майнера
-unsigned miner_mode = 0;			// режим майнера. 0=соло, 1=пул
-unsigned cache_size = 100000;		// размер кэша чтения плотов
-unsigned paths_num = 0;				// количество параметров пути к файлам
+char *p_minerPath;					// Path to the miner folder
+unsigned miner_mode = 0;			// miner mode. 0=solo, 1=pool
+unsigned cache_size = 100000;		// read cache size
+unsigned paths_num = 0;				// number of parameter file paths
 char* paths_dir[MaxTreads];
 bool use_sorting = false;			// Использовать сортировку в отправщике
 bool show_msg = false;				// Показать общение с сервером в отправщике
@@ -1960,7 +1960,7 @@ void *updater_i(void * path) {
 		Sleep(update_interval);
 		//Log(" Проснулись");
 	} while (true);
-	Log("\nС хуя ли?");
+	Log("\n ?");
 	return path;
 }
  
@@ -2091,7 +2091,7 @@ int ClearMem(void)
 		}
 		else if (!NT_SUCCESS(status))
 		{
-			fprintf(stderr, "\nUnable to execute the memory list command %p", status);
+			fprintf(stderr, "\nUnable to execute the memory list command %s", status);
 		}
 		return NT_SUCCESS(status);
 	
@@ -2113,7 +2113,7 @@ int main(int argc, char **argv) {
 		
 
 		SetConsoleTextAttribute(hConsole, 11);
-		printf_s("\nBURST miner, %s\nProgramming: dcct (Linux) & Blago (Windows)\n", version);
+		printf_s("\nBURST miner, %s\nProgramming: dcct (Linux) & Blago (Windows) & modded by d34th (Win64)\n", version);
 		SetConsoleTextAttribute(hConsole, 7);
 
 		// path to miner
@@ -2315,7 +2315,7 @@ int main(int argc, char **argv) {
                 stopThreads = 1;
 				for(i = 0; i < paths_num; i++)
 				{
-					Log("\nПрерываем поток: ");	Log_u(i);
+					Log("\nFlow Inturruption: ");	Log_u(i);
 					if( pthread_join(worker[i], NULL) > 0 )
 					//if (pthread_cancel(worker[i]) > 0)
 					{
